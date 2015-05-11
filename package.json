@@ -1,6 +1,6 @@
 {
   "name": "angular-circular-progress",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AngularJS module that creates circular progress bars",
   "main": "circularProgress.js",
   "scripts": {},
