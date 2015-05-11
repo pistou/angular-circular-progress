@@ -255,7 +255,7 @@ angular.module('angular-circular-progress', []);
             restrict: 'E',
             replace: true,
             scope: {
-                value:          "=",
+                value:          "@",
                 max:            "=",
                 orientation:    "@",
                 radius:         "@",
