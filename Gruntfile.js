@@ -1,6 +1,6 @@
 'use strict';
 
-// jshont node:true
+// jshint node:true
 
 module.exports = function(grunt) {
     var files = [
@@ -47,5 +47,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    grunt.registerTask('default', ['jshint:src', 'concat:dist', 'uglify:dist']);
+    grunt.registerTask('default', ['jshint:src', 'concat:build', 'uglify:build']);
 };

@@ -11,6 +11,9 @@
   ],
   "author": "Pierre Skowron",
   "license": "MIT",
+  "issues": {
+      "url": "https://github.com/TouPye/angular-circular-progress/issues"
+  },
   "dependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
