@@ -6,7 +6,7 @@
         .directive('circularProgress', circularProgress);
 
 
-    var circularProgress = function($window, circularProgressService) {
+    function circularProgress ($window, circularProgressService) {
         return {
             restrict: 'E',
             replace: true,
@@ -131,5 +131,5 @@
                 '</svg>'
             ].join('\n')
         };
-    };
+    }
 })();
