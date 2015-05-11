@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="circularProgressDemo">
+    <head>
+        <meta charset="UTF-8">
+        <title>AngularJS Circular Progress Demo</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="../dist/circularProgress.js"></script>
+        <script>
+            angular
+                .module('circularProgressDemo', ['angular-circular-progress']);
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h2>Circular Progress Demo</h2>
+            <circular-progress></circular-progress>
+            <circular-progress
+                value="50"
+            ></circular-progress>
+
+        </div>
+    </body>
+</html>
