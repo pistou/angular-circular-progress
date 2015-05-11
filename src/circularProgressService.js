@@ -12,9 +12,7 @@
             updateState: updateState
         };
 
-        return service;
-
-        function updateState(val, total, r, ring, size) {
+        var updateState = function(val, total, r, ring, size) {
             if (!size) {
                 return ring;
             }
@@ -31,7 +29,7 @@
                 ].join(" ");
 
             return ring.attr("d", d);
-        }
+        };
 
         var polarToCartesian = function(cx, cy, r, deg) {
             var rad = (deg - 90) * Math.PI / 180.0;
@@ -211,5 +209,7 @@
                 return service.animations.easeOutBounce (t*2-d, 0, c, d) * 0.5 + c*0.5 + b;
             }
         };
+
+        return service;
     }
 })();

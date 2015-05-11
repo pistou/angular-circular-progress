@@ -6,7 +6,7 @@
         .directive('circularProgress', circularProgress);
 
 
-    function circularProgress($window, circularProgressService) {
+    var circularProgress = function($window, circularProgressService) {
         return {
             restrict: 'E',
             replace: true,
@@ -71,7 +71,7 @@
                 };
 
                 var renderState = function(newVal, oldVal) {
-                    if (!angular.isDefined(val)) {
+                    if (!angular.isDefined(newVal)) {
                         return false;
                     }
 
@@ -86,14 +86,14 @@
                     }
 
                     var start = oldVal === newVal ? 0 : (oldVal || 0),
-                        val = newVal - start;
-
-                    if (angular.isNumber(reset)) {
-                        start       = resetVal;
-                        val         = newVal - resetVal;
-                        resetVal    = null,
+                        val = newVal - start,
                         iteration   = 0,
                         easingAnimation = circularProgressService.animations[scope.animation];
+
+                    if (angular.isNumber(resetVal)) {
+                        start       = resetVal;
+                        val         = newVal - resetVal;
+                        resetVal    = null;
                     }
 
                     (function animate() {
@@ -131,5 +131,5 @@
                 '</svg>'
             ].join('\n')
         };
-    }
+    };
 })();
