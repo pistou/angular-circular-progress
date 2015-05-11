@@ -1,7 +1,7 @@
-// https://gist.github.com/paulirish/1579671
-// MIT license
-
 (function() {
+    // https://gist.github.com/paulirish/1579671
+    // MIT license
+
     'use strict';
 
     var lastTime = 0;
