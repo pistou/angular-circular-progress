@@ -23,7 +23,7 @@
 
     if (!window.cancelAnimationFrame)
         window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
+            window.clearTimeout(id);
         };
 }());
 
@@ -253,7 +253,7 @@ angular.module('angular-circular-progress', []);
         .directive('circularProgress', circularProgress);
 
 
-    var circularProgress = function($window, circularProgressService) {
+    function circularProgress ($window, circularProgressService) {
         return {
             restrict: 'E',
             replace: true,
@@ -378,5 +378,5 @@ angular.module('angular-circular-progress', []);
                 '</svg>'
             ].join('\n')
         };
-    };
+    }
 })();
