@@ -3,7 +3,7 @@
 
     angular
         .module('angular-circular-progress')
-        .directive('circularProgress', circularProgress);
+        .directive('circularProgress', ['circularProgressService', circularProgress]);
 
 
     function circularProgress ($window, circularProgressService) {
@@ -27,6 +27,7 @@
                         max:            100,
                         orientation:    1,
                         radius:         100,
+                        stroke:         15,
                         baseColor:      "#a2a2a2",
                         progressColor:  "#ca2014",
                         iterations:     100,
