@@ -3,7 +3,7 @@
 
     angular
         .module('angular-circular-progress')
-        .directive('circularProgress', ['circularProgressService', circularProgress]);
+        .directive('circularProgress', ['$window', 'circularProgressService', circularProgress]);
 
 
     function circularProgress ($window, circularProgressService) {
@@ -26,8 +26,8 @@
                         value:          0,
                         max:            100,
                         orientation:    1,
-                        radius:         100,
-                        stroke:         15,
+                        radius:         80,
+                        stroke:         20,
                         baseColor:      "#a2a2a2",
                         progressColor:  "#ca2014",
                         iterations:     100,
@@ -52,7 +52,7 @@
 
                     ring
                         .attr({
-                            "transform": options.rotation ? "" : "scale(-1, 1) translate(" + (-size) + " 0)"
+                            "transform": !options.rotation ? "" : "scale(-1, 1) translate(" + (-size) + " 0)"
                         })
                         .css({
                             "stroke":       options.progressColor,
@@ -83,13 +83,14 @@
 
                     if (newVal > scope.max) {
                         resetVal = oldVal;
-                        return scope.value = scope.max;
+                        return scope.value = options.max;
                     }
 
                     var start = oldVal === newVal ? 0 : (oldVal || 0),
                         val = newVal - start,
                         iteration   = 0,
-                        easingAnimation = circularProgressService.animations[scope.animation];
+                        easingAnimation = circularProgressService.animations[options.animation];
+
 
                     if (angular.isNumber(resetVal)) {
                         start       = resetVal;
@@ -99,14 +100,14 @@
 
                     (function animate() {
                         circularProgressService.updateState(
-                            easingAnimation(iteration, start, val, parseInt(scope.iterations)),
-                            parseInt(scope.max),
-                            parseInt(scope.radius),
+                            easingAnimation(iteration, start, val, parseInt(options.iterations)),
+                            parseInt(options.max),
+                            parseInt(options.radius),
                             ring,
                             size
                         );
 
-                        if (iteration < parseInt(scope.iterations)) {
+                        if (iteration < parseInt(options.iterations)) {
                             $window.requestAnimationFrame(animate);
                             iteration++;
                         }
