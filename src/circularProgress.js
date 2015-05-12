@@ -11,7 +11,7 @@
             restrict: 'E',
             replace: true,
             scope: {
-                value:          "@",
+                value:          "=",
                 max:            "=",
                 orientation:    "@",
                 radius:         "@",

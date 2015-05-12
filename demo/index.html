@@ -8,11 +8,33 @@
         <script src="../dist/circularProgress.js"></script>
         <script>
             angular
-                .module('circularProgressDemo', ['angular-circular-progress']);
+                .module('circularProgressDemo', ['angular-circular-progress'])
+                .controller('TimerCtrl', function($timeout) {
+                    var vm = this,
+                        timeout;
+                    vm.value = 0;
+                    vm.max = 60;
+                    vm.animation = "linearEase";
+                    vm.iterations = 60; // Accelerate animation to fit the 1 second timeout function
+
+
+                    vm.start = function(){
+                        timeout = $timeout(function(){
+                            vm.value++;
+                            if(vm.value > vm.max) {
+                                vm.value = 0;
+                            }
+                            vm.start();
+                        }, 1000);
+                    };
+
+                    vm.start();
+
+                });
         </script>
     </head>
 
-    <body>
+    <body ng-controller="TimerCtrl as timer">
         <div class="container">
 
             <h2>Circular Progress Demo</h2>
@@ -27,6 +49,15 @@
                 progressColor="#ca2014"
                 iterations="100"
                 animation="easeInOutCubic"
+            ></circular-progress>
+
+
+            <!-- Note that value and max MUST NOT use the {{ }} notation -->
+            <circular-progress
+                value="timer.value"
+                max="timer.max"
+                iterations="{{timer.iterations}}"
+                animation="{{timer.animation}}"
             ></circular-progress>
 
         </div>
