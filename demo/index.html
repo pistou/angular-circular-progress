@@ -16,10 +16,11 @@
                     vm.max = 60;
                     vm.animation = "linearEase";
                     vm.iterations = 60; // Accelerate animation to fit the 1 second timeout function
+                    vm.label = "";
 
-
-                    vm.start = function(){
-                        timeout = $timeout(function(){
+                    vm.start = function() {
+                        vm.label = vm.value + "s";
+                        timeout = $timeout(function() {
                             vm.value++;
                             if(vm.value > vm.max) {
                                 vm.value = 0;
@@ -58,6 +59,8 @@
                 max="timer.max"
                 iterations="{{timer.iterations}}"
                 animation="{{timer.animation}}"
+                label="{{timer.label}}"
+
             ></circular-progress>
 
         </div>

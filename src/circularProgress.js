@@ -19,7 +19,8 @@
                 baseColor:      "@",
                 progressColor:  "@",
                 iterations:     "@",
-                animation:      "@"
+                animation:      "@",
+                label:          "@"
             },
             link: function(scope, element) {
                 var options     = {
@@ -31,10 +32,12 @@
                         baseColor:      "#a2a2a2",
                         progressColor:  "#ca2014",
                         iterations:     100,
-                        animation:      "easeInOutCubic"
+                        animation:      "easeInOutCubic",
+                        label:          ""
                     },
                     ring        = element.find('path'),
                     background  = element.find('circle'),
+                    label       = element.find('text'),
                     size,
                     resetVal;
 
@@ -69,6 +72,16 @@
                             "stroke":       options.baseColor,
                             "stroke-width": options.stroke
                         });
+
+                    label
+                        .attr({
+                            "x":            radius + stroke,
+                            "y":            radius + stroke,
+                            "text-anchor":  "middle",
+                            "font-size":    radius / 3,
+                            "fill":         options.progressColor,
+                        })
+                        .text(options.label);
                 };
 
                 var renderState = function(newVal, oldVal) {
@@ -130,7 +143,8 @@
                 '<svg class="angular-circular-progress" xmlns="http://www.w3.org/2000/svg">',
                     '<circle fill="none"/>',
                     '<path fill="none"/>',
-                '</svg>'
+                    '<text fill="none"/>',
+                '</svg>',
             ].join('\n')
         };
     }
