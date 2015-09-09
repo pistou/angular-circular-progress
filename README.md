@@ -26,8 +26,8 @@ angular.module('myModule', ['angular-circular-progress'])
     orientation="1"
     radius="80"
     stroke="20"
-    baseColor="#a2a2a2"
-    progressColor="#ca2014"
+    base-color="#ffff00"
+    progress-color="#00ff00"
     iterations="100"
     animation="easeInOutCubic"
 ></circular-progress>
@@ -44,8 +44,8 @@ angular.module('myModule', ['angular-circular-progress'])
 | `orientation`   | Whether the progressbar should rotate clockwise or counter-clockwise.                                     | No        | 1                 | Boolean           |
 | `radius`        | Radius of the circle.                                                                                     | No        | 80                | Integer           |
 | `stroke`        | Specifies the circle's thickness.                                                                         | No        | 20                | Integer           |
-| `baseColor`     | Color of the circle's background.                                                                         | No        | #a2a2a2           | Hex color         |
-| `progressColor` | The color of the `current` value on the circle.                                                           | No        | #ca2014           | Hex color         |
+| `base-color`    | Color of the circle's background.                                                                         | No        | #a2a2a2           | Hex color         |
+| `progress-color`| The color of the `current` value on the circle.                                                           | No        | #ca2014           | Hex color         |
 | `iterations`    | Number of iterations for the animation. Set it to 1 for no animation and increase for slower animation.   | No        | 100               | Integer           |
 | `animation`     | The easing function that will be used when animating.                                                     | No        | easeInOutCubic    | linearEase <br> easeInQuad <br> easeOutQuad <br> easeInOutQuad <br> easeInCubic <br> easeOutCubic <br> easeInOutCubic <br> easeInQuart <br> easeOutQuart <br> easeInOutQuart <br> easeInQuint <br> easeOutQuint <br> easeInOutQuint <br> easeInSine <br> easeOutSine <br> easeInOutSine <br> easeInExpo <br> easeOutExpo <br> easeInOutExpo <br> easeInCirc <br> easeOutCirc <br> easeInOutCirc <br> easeInElastic <br> easeOutElastic <br> easeInOutElastic <br> easeInBack <br> easeOutBack <br> easeInOutBack <br> easeInBounce <br> easeOutBounce <br> easeInOutBounce <br> |
 
