@@ -12,7 +12,7 @@ You also can use [Bower](http://www.bower.io) by running `bower install angular-
 
 ### Usage
 
-Add `angular-svg-round-progress` to your app's module dependencies:
+Add `angular-circular-progress` to your app's module dependencies:
 
 ```javascript
 angular.module('myModule', ['angular-circular-progress'])
